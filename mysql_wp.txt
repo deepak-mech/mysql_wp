@@ -1,6 +1,6 @@
-                                                       --------------------------------------------------------------------------------------------
+                  --------------------------------------------------------------------------------------------
 			          Deploy Wordpress Application With MySQL Database
-		                ---------------------------------------------------------------------------------------------
+		  ---------------------------------------------------------------------------------------------
 
 Step 1). Launch a pod with mysql image for database:
  Command:  kubectl run mydb --image=mysql:5.7  --env=MYSQL_ROOT_PASSWORD=redhat  --env=MYSQL_DATABASE=wpdb   --env=MYSQL_USER=deepak  --env=MYSQL_PASSWORD=redhat123
