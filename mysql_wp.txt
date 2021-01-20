@@ -1,0 +1,33 @@
+                                                       --------------------------------------------------------------------------------------------
+			          Deploy Wordpress Application With MySQL Database
+		                ---------------------------------------------------------------------------------------------
+
+Step 1). Launch a pod with mysql image for database:
+ Command:  kubectl run mydb --image=mysql:5.7  --env=MYSQL_ROOT_PASSWORD=redhat  --env=MYSQL_DATABASE=wpdb   --env=MYSQL_USER=deepak  --env=MYSQL_PASSWORD=redhat123
+
+------> Check status of pod:   kubectl get pods
+------> Check info about pod:   kubectl describe pods mydb
+
+Step 2). Get console of MySQL database:
+Command:  kubectl exec -it mydb -- bash
+
+------> Login inside MySQL:  mysql -u deepak -predhat123
+------> Check database created:  show databases;
+
+Step 3). Launch another pod with wordpress image for php code:
+Command:  kubectl run mywp1  --image=wordpress:5.1.1-php7.3-apache
+
+------> Check status of pod:   kubectl get pods
+
+Step 4). Create Service(LB) for mywp1 pod:
+Command: kubectl  expose pod mywp1  --type=NodePort  --port=80  
+
+------> Check status of service:   kubectl get svc
+
+Step 5). Open your browser & paste the following url:
+
+URL --->  http://<minikube_vm_ip>:<NodePort>
+
+
+
+ 
